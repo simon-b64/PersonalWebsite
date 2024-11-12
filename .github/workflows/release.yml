@@ -23,5 +23,5 @@ jobs:
 
       - name: Build the Docker image
         run: |
-          docker build . --tag ghcr.io/simon-b64/personal-website:latest
-          docker push ghcr.io/simon-b64/personal-website:latest
+          docker build . --tag ghcr.io/simon-b64/PersonalWebsite:latest
+          docker push ghcr.io/simon-b64/PersonalWebsite:latest
