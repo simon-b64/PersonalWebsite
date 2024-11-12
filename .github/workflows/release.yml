@@ -22,6 +22,7 @@ jobs:
           password: ${{secrets.GITHUB_TOKEN}}
 
       - name: Build the Docker image
-        run: |
-          docker build . --tag ghcr.io/simon-b64/PersonalWebsite:latest
-          docker push ghcr.io/simon-b64/PersonalWebsite:latest
+        run: docker build . --tag ghcr.io/simon-b64/PersonalWebsite:latest
+
+      - name: Push image to registry
+        run: docker push ghcr.io/simon-b64/PersonalWebsite:latest
