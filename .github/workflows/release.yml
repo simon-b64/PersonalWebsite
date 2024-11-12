@@ -8,7 +8,7 @@ on:
       - completed
 
 jobs:
-  build-lint:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out Git repository
@@ -23,5 +23,5 @@ jobs:
 
       - name: Build the Docker image
         run: |
-          docker build . --tag ghcr.io/simon-b64/PersonalWebsite:latest
-          docker push ghcr.io/simon-b64/PersonalWebsite:latest
+          docker build . --tag ghcr.io/simon-b64/personal-website:latest
+          docker push ghcr.io/simon-b64/personal-website:latest
