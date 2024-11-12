@@ -1,0 +1,27 @@
+name: Release
+
+on:
+  workflow_run:
+    workflows: ['Lint']
+    branches: ['master']
+    types:
+      - completed
+
+jobs:
+  build-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Build the Docker image
+        run: |
+          docker build . --tag ghcr.io/simon-b64/PersonalWebsite:latest
+          docker push ghcr.io/simon-b64/PersonalWebsite:latest
