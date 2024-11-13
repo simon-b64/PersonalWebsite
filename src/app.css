@@ -2,3 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import '@fontsource/roboto';
+
+:root {
+	font-family: Roboto, Arial, sans-serif;
+}

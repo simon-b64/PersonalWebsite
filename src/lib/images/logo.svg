@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500" viewBox="0 0 500 500">
+  <defs>
+    <clipPath id="clip-_500x500_short_Logo_Black">
+      <rect width="500" height="500"/>
+    </clipPath>
+  </defs>
+  <g id="_500x500_short_Logo_Black" data-name="500x500 short Logo Black" clip-path="url(#clip-_500x500_short_Logo_Black)">
+    <g id="Logo" transform="translate(13.54 37.725)">
+      <path id="Path_8" data-name="Path 8" d="M107.355-244.18-1.263,4.631-108.2-244.18h32L-.421-66.939,75.359-244.18l34.943-82.1h32Z" transform="translate(331.46 326.275)"/>
+      <path id="Path_7" data-name="Path 7" d="M108.1,0H76.258L49.442-76.677H-50.28L-77.1,0l-33.52,96.37H-142.46L-108.94,0l77.934-214.947C-26.4-227.1-23.883-242.6,0-243.02c12.57,0,22.626,4.19,25.978,13.408ZM-40.224-104.331H40.224L1.676-214.947h-4.19Z" transform="translate(142.46 324.275)"/>
+    </g>
+  </g>
+</svg>
