@@ -7,11 +7,10 @@ settings:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
       '@fontsource/roboto':
         specifier: ^5.1.0
         version: 5.1.0
-    devDependencies:
       '@neoconfetti/svelte':
         specifier: ^2.0.0
         version: 2.2.1
