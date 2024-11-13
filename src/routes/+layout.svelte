@@ -13,9 +13,7 @@
 	</main>
 
 	<footer>
-		<p>
-			This was automatically updated
-		</p>
+		<p>This was automatically updated a second time</p>
 	</footer>
 </div>
 
@@ -43,10 +41,6 @@
 		justify-content: center;
 		align-items: center;
 		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
 	}
 
 	@media (min-width: 480px) {
