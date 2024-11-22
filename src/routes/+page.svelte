@@ -9,6 +9,22 @@
 	});
 </script>
 
-<div class="container mx-auto flex justify-center">
-	<Logo {active} />
-</div>
+<main class="landing-page flex h-screen w-screen items-center justify-center">
+	<div
+		class="mx-auto flex max-w-[893px] flex-wrap items-center justify-center gap-[100px] px-4 md:flex-nowrap"
+	>
+		<Logo {active} height="295px" />
+		<div class="textbox">
+			<h1 class="text-6xl tracking-[12.8px]">Simon B.</h1>
+			<h3 class="max-w-[500px] text-2xl leading-relaxed">
+				Autodidact software engineer trying to fuel new innovation inside the technology sector
+			</h3>
+		</div>
+	</div>
+</main>
+
+<style>
+	.landing-page {
+		background: radial-gradient(158.02% 50% at 50% 50%, #fff 0%, #d1d1d1 100%);
+	}
+</style>

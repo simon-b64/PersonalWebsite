@@ -1,17 +1,7 @@
-<script lang="ts">
-	import logo from '$lib/images/logo.svg';
-</script>
+<script lang="ts"></script>
 
-<nav class="navbar container mx-auto flex items-center p-1">
-	<img src={logo} alt="Logo" class="logo" />
+<nav class="fixed left-0 top-0 h-12 w-full">
+	<div class="container mx-auto flex h-full items-center px-4">
+		<span class="text-xl tracking-[.5rem]">Simon B.</span>
+	</div>
 </nav>
-
-<style>
-	.navbar {
-		height: 3rem;
-	}
-
-	.logo {
-		max-height: 2rem;
-	}
-</style>
