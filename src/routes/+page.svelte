@@ -14,10 +14,10 @@
 		class="mx-auto flex max-w-[893px] flex-wrap items-center justify-center gap-[100px] px-4 md:flex-nowrap"
 	>
 		<Logo {active} height="295px" />
-		<div class="textbox">
+		<div class="textbox flex flex-col gap-4 text-center md:text-left">
 			<h1 class="text-6xl tracking-[12.8px]">Simon B.</h1>
 			<h3 class="max-w-[500px] text-2xl leading-relaxed">
-				Autodidact software engineer trying to fuel new innovation inside the technology sector
+				Autodidact software engineer trying to fuel new innovation inside the technology sector.
 			</h3>
 		</div>
 	</div>
