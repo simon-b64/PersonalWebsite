@@ -9,6 +9,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Home | Simon B.</title>
+</svelte:head>
+
 <main class="landing-page flex h-screen w-screen items-center justify-center">
 	<div
 		class="mx-auto flex max-w-[893px] flex-wrap items-center justify-center gap-[100px] px-4 md:flex-nowrap"
