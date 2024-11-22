@@ -6,4 +6,6 @@
 	<title>404 | Simon B.</title>
 </svelte:head>
 
-<ErrorDisplay code={404} />
+<div class="absolute h-screen w-screen">
+	<ErrorDisplay code={404} />
+</div>

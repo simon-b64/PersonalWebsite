@@ -13,7 +13,7 @@
 	<title>Home | Simon B.</title>
 </svelte:head>
 
-<main class="landing-page flex h-screen w-screen items-center justify-center">
+<div class="flex h-screen w-screen items-center justify-center">
 	<div
 		class="mx-auto flex max-w-[893px] flex-wrap items-center justify-center gap-[100px] px-4 md:flex-nowrap"
 	>
@@ -25,10 +25,4 @@
 			</h3>
 		</div>
 	</div>
-</main>
-
-<style>
-	.landing-page {
-		background: radial-gradient(158.02% 50% at 50% 50%, #fff 0%, #d1d1d1 100%);
-	}
-</style>
+</div>
