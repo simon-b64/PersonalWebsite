@@ -1,14 +1,11 @@
 name: Release
 
 on:
-  workflow_run:
-    workflows: ['Lint']
+  push:
     branches: ['master']
-    types:
-      - completed
 
 jobs:
-  build-and-push:
+  release:
     name: 'Build docker image and push'
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
@@ -16,6 +13,20 @@ jobs:
     steps:
       - name: 'Check out Git repository'
         uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v1
+        name: Set up Node.js
+        with:
+          node-version: 20
+
+      - run: npm i -g pnpm
+        name: Install pnpm
+
+      - run: pnpm install
+        name: Install dependencies
+
+      - run: pnpm lint
+        name: Run lint
 
       - name: 'cat package.json'
         run: cat ./package.json
