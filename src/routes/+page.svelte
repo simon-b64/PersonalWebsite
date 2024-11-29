@@ -13,16 +13,17 @@
 	<title>Home | Simon B.</title>
 </svelte:head>
 
-<div class="flex h-screen w-screen items-center justify-center">
-	<div
-		class="mx-auto flex max-w-[893px] flex-wrap items-center justify-center gap-[100px] px-4 md:flex-nowrap"
-	>
-		<Logo {active} height="295px" />
-		<div class="textbox flex flex-col gap-4 text-center md:text-left">
-			<h1 class="text-6xl tracking-[12.8px]">Simon B.</h1>
-			<h3 class="max-w-[500px] text-2xl leading-relaxed">
-				Autodidact software engineer trying to fuel new innovation inside the technology sector.
-			</h3>
-		</div>
-	</div>
-</div>
+<section class="hero-section">
+	<Logo {active} height="19rem" />
+</section>
+
+<style>
+	.hero-section {
+      background: linear-gradient(252deg, var(--bg-color-primary) 0%, var(--bg-color-secondary) 100%);
+			height: 100vh;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+	}
+</style>

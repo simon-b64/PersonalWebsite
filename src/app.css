@@ -6,3 +6,23 @@
 :root {
 	font-family: Roboto, Arial, sans-serif;
 }
+
+.app {
+	--text-color: #000000;
+
+	--bg-color-primary: #ffffff;
+	--bg-color-secondary: #D9FFFD;
+	--bg-color-primary-dark: #2B2B2B;
+	--bg-color-secondary-dark: #302235;
+	--primary-color: #9B28FF;
+	--primary-accent-color: #781CC9;
+
+	color: var(--text-color);
+}
+
+.app.dark {
+	--text-color: #ffffff;
+
+	--bg-color-primary: #2B2B2B;
+	--bg-color-secondary: #302235;
+}
