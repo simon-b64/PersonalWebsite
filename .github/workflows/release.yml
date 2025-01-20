@@ -6,7 +6,7 @@ on:
 
 jobs:
   release:
-    name: 'Build docker image and push'
+    name: 'Lint & Release'
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
