@@ -9,7 +9,7 @@ import { Component, Input, numberAttribute } from '@angular/core';
 export class Logo {
     @Input({ transform: numberAttribute }) scale: number | undefined;
     @Input() width: number | undefined;
-    @Input() color: string = 'black';
+    @Input() color: string | undefined;
     @Input({ transform: numberAttribute }) strokeWidth: number | undefined;
 
     get calculatedWidth() {
@@ -24,8 +24,12 @@ export class Logo {
 
     get effectiveViewBox() {
         const padding = (this.strokeWidth ?? 6) / 2;
-        const width = 930 + padding;
-        const height = 832 + padding;
-        return `0 0 ${width} ${height}`;
+        const width = 930 + (this.strokeWidth ?? 6);
+        const height = 832 + (this.strokeWidth ?? 6);
+        return `-${padding} -${padding} ${width} ${height}`;
+    }
+
+    get effectiveColor() {
+        return this.color ?? '#000000';
     }
 }
