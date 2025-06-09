@@ -1,4 +1,5 @@
 import { Component, Input, numberAttribute } from '@angular/core';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
     selector: 'app-logo',
@@ -11,6 +12,11 @@ export class Logo {
     @Input() width: number | undefined;
     @Input() color: string | undefined;
     @Input({ transform: numberAttribute }) strokeWidth: number | undefined;
+
+    constructor(
+        private readonly themeService: ThemeService
+    ) {
+    }
 
     get calculatedWidth() {
         const scale = this.scale ?? 1;
@@ -30,6 +36,10 @@ export class Logo {
     }
 
     get effectiveColor() {
-        return this.color ?? '#000000';
+        if (this.color !== undefined) {
+            return this.color;
+        }
+
+        return this.themeService.currentTheme === 'dark' ? '#ffffff' : '#000000';
     }
 }
