@@ -1,4 +1,4 @@
-import { Component, Input, numberAttribute } from '@angular/core';
+import { Component, inject, Input, numberAttribute } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
 
 @Component({
@@ -13,10 +13,7 @@ export class Logo {
     @Input() color: string | undefined;
     @Input({ transform: numberAttribute }) strokeWidth: number | undefined;
 
-    constructor(
-        private readonly themeService: ThemeService
-    ) {
-    }
+    private readonly themeService = inject(ThemeService);
 
     get calculatedWidth() {
         const scale = this.scale ?? 1;
@@ -32,7 +29,7 @@ export class Logo {
         const padding = (this.strokeWidth ?? 6) / 2;
         const width = 930 + (this.strokeWidth ?? 6);
         const height = 832 + (this.strokeWidth ?? 6);
-        return `-${padding} -${padding} ${width} ${height}`;
+        return `-${ padding } -${ padding } ${ width } ${ height }`;
     }
 
     get effectiveColor() {

@@ -1,4 +1,4 @@
-import { Inject, Injectable, PLATFORM_ID, Renderer2, RendererFactory2 } from '@angular/core';
+import { inject, Injectable, PLATFORM_ID, Renderer2, RendererFactory2 } from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 
@@ -11,12 +11,12 @@ export class ThemeService {
     private readonly isBrowser: boolean;
     private readonly themeSubject = new BehaviorSubject<Theme>('light');
 
-    constructor(
-        @Inject(PLATFORM_ID) private readonly platformId: Object,
-        @Inject(DOCUMENT) private readonly document: Document,
-        rendererFactory: RendererFactory2
-    ) {
-        this.renderer = rendererFactory.createRenderer(null, null);
+    private readonly platformId = inject(PLATFORM_ID);
+    private readonly document = inject(DOCUMENT);
+    private readonly rendererFactory = inject(RendererFactory2);
+
+    constructor() {
+        this.renderer = this.rendererFactory.createRenderer(null, null);
         this.isBrowser = isPlatformBrowser(this.platformId);
         this.initTheme();
     }

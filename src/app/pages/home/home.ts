@@ -4,7 +4,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { faAnglesDown, faLightbulb, faSearch, faUsers, faSmile } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'page-home',
+  selector: 'app-home',
     imports: [
         Logo,
         FontAwesomeModule,
