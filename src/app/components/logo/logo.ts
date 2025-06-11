@@ -1,25 +1,21 @@
 import { Component, inject, Input, numberAttribute } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
+import { NgStyle } from '@angular/common';
 
 @Component({
     selector: 'app-logo',
-    imports: [],
+    imports: [
+        NgStyle,
+    ],
     templateUrl: './logo.html',
     styleUrl: './logo.css',
 })
 export class Logo {
     @Input({ transform: numberAttribute }) scale: number | undefined;
-    @Input() width: number | undefined;
     @Input() color: string | undefined;
     @Input({ transform: numberAttribute }) strokeWidth: number | undefined;
 
     private readonly themeService = inject(ThemeService);
-
-    get calculatedWidth() {
-        const scale = this.scale ?? 1;
-        const width = this.width ?? 465;
-        return width * scale;
-    }
 
     get effectiveStrokeWidth() {
         return this.strokeWidth ?? 6;
@@ -38,5 +34,15 @@ export class Logo {
         }
 
         return this.themeService.currentTheme === 'dark' ? '#ffffff' : '#000000';
+    }
+
+    get scaleStyle() {
+        const scale = this.scale ?? 1;
+        return {
+            transform: `scale(${scale})`,
+            width: '100%',
+            height: 'auto',
+            display: 'block',
+        };
     }
 }
