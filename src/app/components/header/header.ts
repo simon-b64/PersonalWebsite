@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { ThemeService } from '../../services/theme.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { ThemeStore } from '../../store/theme.store';
 
 @Component({
     selector: 'app-header',
@@ -10,9 +10,8 @@ import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
     styleUrl: './header.css',
 })
 export class Header {
-    protected readonly themeService = inject(ThemeService);
+    protected readonly themeStore = inject(ThemeStore);
 
     protected readonly faSun = faSun;
     protected readonly faMoon = faMoon;
-
 }

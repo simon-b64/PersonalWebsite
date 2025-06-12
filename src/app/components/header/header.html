@@ -6,10 +6,10 @@
                 id="theme-toggle"
                 type="checkbox"
                 class="toggle"
-                [checked]="themeService.currentTheme === 'dark'"
-                (change)="themeService.toggleTheme()"
+                [checked]="themeStore.theme() === 'dark'"
+                (change)="themeStore.toggleTheme()"
             />
-            <fa-icon [icon]="faMoon" size="xl" />
+            <fa-icon [icon]="faMoon" size="xl"/>
         </label>
     </nav>
 </header>

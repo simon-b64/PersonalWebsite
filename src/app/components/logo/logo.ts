@@ -1,6 +1,6 @@
 import { Component, inject, Input, numberAttribute } from '@angular/core';
-import { ThemeService } from '../../services/theme.service';
 import { NgStyle } from '@angular/common';
+import { ThemeStore } from '../../store/theme.store';
 
 @Component({
     selector: 'app-logo',
@@ -15,7 +15,7 @@ export class Logo {
     @Input() color: string | undefined;
     @Input({ transform: numberAttribute }) strokeWidth: number | undefined;
 
-    private readonly themeService = inject(ThemeService);
+    private readonly themeStore = inject(ThemeStore);
 
     get effectiveStrokeWidth() {
         return this.strokeWidth ?? 6;
@@ -33,13 +33,13 @@ export class Logo {
             return this.color;
         }
 
-        return this.themeService.currentTheme === 'dark' ? '#ffffff' : '#000000';
+        return this.themeStore.theme() === 'dark' ? '#ffffff' : '#000000';
     }
 
     get scaleStyle() {
         const scale = this.scale ?? 1;
         return {
-            transform: `scale(${scale})`,
+            transform: `scale(${ scale })`,
             width: '100%',
             height: 'auto',
             display: 'block',

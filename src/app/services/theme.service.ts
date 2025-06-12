@@ -1,15 +1,12 @@
 import { inject, Injectable, PLATFORM_ID, Renderer2, RendererFactory2 } from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { BehaviorSubject } from 'rxjs';
-
-type Theme = 'light' | 'dark';
+import { Theme } from '../store/theme.store';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-    private readonly renderer: Renderer2;
-    private readonly themeKey = 'theme';
+    private readonly THEME_KEY = 'theme';
     private readonly isBrowser: boolean;
-    private readonly themeSubject = new BehaviorSubject<Theme>('light');
+    private readonly renderer: Renderer2;
 
     private readonly platformId = inject(PLATFORM_ID);
     private readonly document = inject(DOCUMENT);
@@ -18,37 +15,25 @@ export class ThemeService {
     constructor() {
         this.renderer = this.rendererFactory.createRenderer(null, null);
         this.isBrowser = isPlatformBrowser(this.platformId);
-        this.initTheme();
     }
 
-    private initTheme(): void {
-        if (!this.isBrowser) return;
+    public loadSavedTheme(): Theme {
+        if (!this.isBrowser)
+            return 'light';
 
-        const saved = localStorage.getItem(this.themeKey) as Theme | null;
+        const saved = localStorage.getItem(this.THEME_KEY) as Theme | null;
         if (saved) {
-            this.setTheme(saved);
+            return saved;
         } else {
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            this.setTheme(prefersDark ? 'dark' : 'light');
+            return prefersDark ? 'dark' : 'light';
         }
     }
 
-    toggleTheme(): void {
-        if (!this.isBrowser) return;
-
-        const next: Theme = this.themeSubject.value === 'light' ? 'dark' : 'light';
-        this.setTheme(next);
-    }
-
-    setTheme(theme: Theme): void {
-        this.themeSubject.next(theme);
+    public updateThemeInDocumentAndStorage(theme: Theme): void {
         this.renderer.setAttribute(this.document.documentElement, 'data-theme', theme);
         if (this.isBrowser) {
-            localStorage.setItem(this.themeKey, theme);
+            localStorage.setItem(this.THEME_KEY, theme);
         }
-    }
-
-    get currentTheme(): Theme {
-        return this.themeSubject.value;
     }
 }
