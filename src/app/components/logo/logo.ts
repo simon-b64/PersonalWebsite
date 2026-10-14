@@ -1,4 +1,4 @@
-import { Component, inject, Input, numberAttribute } from '@angular/core';
+import { Component, inject, Input, numberAttribute, ChangeDetectionStrategy } from '@angular/core';
 import { NgStyle } from '@angular/common';
 import { ThemeStore } from '../../store/theme.store';
 
@@ -8,6 +8,7 @@ import { ThemeStore } from '../../store/theme.store';
         NgStyle,
     ],
     templateUrl: './logo.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './logo.css',
 })
 export class Logo {

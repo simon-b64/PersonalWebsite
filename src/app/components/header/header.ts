@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { ThemeStore } from '../../store/theme.store';
@@ -7,6 +7,7 @@ import { ThemeStore } from '../../store/theme.store';
     selector: 'app-header',
     imports: [FontAwesomeModule],
     templateUrl: './header.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './header.css',
 })
 export class Header {
